@@ -99,7 +99,10 @@ check_config = on_command("查看配置", aliases={"config"}, permission=SUPERUS
 async def check_config_handler(event: Union[PrivateMessageEvent, GroupMessageEvent], args: Message = CommandArg()):
     if isinstance(event, PrivateMessageEvent):
         with open(f"{wol_path}/data/data.yaml", "r") as f:
-            await check_config.finish(f.read())
+            config_msg = f.read()
+            if config_msg.strip(" ") == "":
+                config_msg = "暂无配置"
+            await check_config.finish(config_msg)
 
 show_help = on_command("wolhelp", permission=SUPERUSER, priority=20)
 @show_help.handle()
