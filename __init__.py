@@ -14,6 +14,7 @@ from typing import Union
 
 wol_path = os.path.dirname(os.path.abspath(__file__))
 if not os.path.exists(wol_path + "/data/data.yaml"):
+    os.mkdir(wol_path + "/data")
     open(f"{wol_path}/data/data.yaml", "w+").close()
 
 send_wol = on_command("开机", aliases={"wol"}, permission=SUPERUSER, priority=20)
