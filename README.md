@@ -1,7 +1,7 @@
 # Description
 Nonebot的wol插件, 简单的通过qq开机
 
-# installation
+# Installation
 ## pip安装
 >pip install nonebot_plugin_wol
 
