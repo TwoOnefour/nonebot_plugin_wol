@@ -8,7 +8,6 @@ from .config import Config
 from .tools.wol import *
 import os
 from ping3 import ping
-from nonebot_plugin_apscheduler import scheduler
 from typing import Union
 
 
@@ -111,4 +110,5 @@ async def show_help_handler(event: Union[PrivateMessageEvent, GroupMessageEvent]
         await check_config.finish("唤醒\n·/wol ip mac 为直接唤醒\n·/wol 名称\t使用配置名称唤醒\n\n添加配置\n·/wol添加 名称 ip mac\n\nping\n·/ping ip\n\n查看帮助\n·/wolhelp\n\n查看当前配置名称\n·/config")
 
 require("nonebot_plugin_apscheduler")
+from nonebot_plugin_apscheduler import scheduler
 scheduler.add_job(check_alive, "interval", seconds=15, id="check_alive", misfire_grace_time=90)
